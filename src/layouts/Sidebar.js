@@ -10,7 +10,7 @@ const navigation = [
   },
   {
     title: "Products",
-    href: "/alerts",
+    href: "/products",
     icon: "bi bi-bell",
   },
   {

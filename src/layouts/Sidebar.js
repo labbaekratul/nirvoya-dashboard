@@ -20,7 +20,7 @@ const navigation = [
   },
   {
     title: "Orders",
-    href: "/buttons",
+    href: "/orders",
     icon: "bi bi-hdd-stack",
   },
   {
@@ -28,31 +28,31 @@ const navigation = [
     href: "/cards",
     icon: "bi bi-card-text",
   },
-  {
-    title: "Sellers",
-    href: "/grid",
-    icon: "bi bi-columns",
-  },
-  {
-    title: "UI Design",
-    href: "/table",
-    icon: "bi bi-layout-split",
-  },
-  {
-    title: "Forms",
-    href: "/forms",
-    icon: "bi bi-textarea-resize",
-  },
-  {
-    title: "Breadcrumbs",
-    href: "/breadcrumbs",
-    icon: "bi bi-link",
-  },
-  {
-    title: "About",
-    href: "/about",
-    icon: "bi bi-people",
-  },
+  // {
+  //   title: "Sellers",
+  //   href: "/grid",
+  //   icon: "bi bi-columns",
+  // },
+  // {
+  //   title: "UI Design",
+  //   href: "/table",
+  //   icon: "bi bi-layout-split",
+  // },
+  // {
+  //   title: "Forms",
+  //   href: "/forms",
+  //   icon: "bi bi-textarea-resize",
+  // },
+  // {
+  //   title: "Breadcrumbs",
+  //   href: "/breadcrumbs",
+  //   icon: "bi bi-link",
+  // },
+  // {
+  //   title: "About",
+  //   href: "/about",
+  //   icon: "bi bi-people",
+  // },
 ];
 
 const Sidebar = () => {

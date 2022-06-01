@@ -1,5 +1,6 @@
 import { useState } from "react";
 import cameraImage from "../../assets/images/icons/camera.png";
+import Select from "react-select";
 import {
   Card,
   Row,
@@ -15,6 +16,17 @@ import {
 } from "reactstrap";
 
 const AddProduct = () => {
+  const options = [
+    { value: "chocolate", label: "Chocolate" },
+    { value: "strawberry", label: "Strawberry" },
+    { value: "vanilla", label: "Vanilla" },
+  ];
+  const statuses = [
+    { value: "processing", label: "Processing" },
+    { value: "pendding", label: "Pendding" },
+    { value: "published", label: "Published" },
+  ];
+
   const [image, setImage] = useState({
     profile: cameraImage,
   });
@@ -43,18 +55,40 @@ const AddProduct = () => {
     <Form>
       <Card className="p-3 mb-3">
         <CardTitle tag="h4">Product Information</CardTitle>
-        <FormGroup className="w-50">
-          <Label htmlFor="productName">Product Name</Label>
-          <Input type="text" id="productName" placeholder="product name" />
-        </FormGroup>
-        <FormGroup className="w-50">
-          <Label htmlFor="productCategory">Product Category</Label>
-          <Input
-            type="text"
-            id="productCategory"
-            placeholder="Product Category"
-          />
-        </FormGroup>
+        <Row>
+          <Col>
+            <FormGroup>
+              <Label htmlFor="productName">Product Name</Label>
+              <Input type="text" id="productName" placeholder="product name" />
+            </FormGroup>
+            <FormGroup>
+              <Label htmlFor="productCategory">Product Category</Label>
+              <Input
+                type="text"
+                id="productCategory"
+                placeholder="Product Category"
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label htmlFor="status">Status</Label>
+              <Select id="status" options={statuses} />
+            </FormGroup>
+          </Col>
+          <Col>
+            <FormGroup>
+              <Label htmlFor="mainCategory">Category Main</Label>
+              <Select id="mainCategory" options={options} />
+            </FormGroup>
+            <FormGroup>
+              <Label htmlFor="category">Category</Label>
+              <Select id="category" options={options} />
+            </FormGroup>
+            <FormGroup>
+              <Label htmlFor="subCategory">Sub Category</Label>
+              <Select id="subCategory" options={options} />
+            </FormGroup>
+          </Col>
+        </Row>
       </Card>
       <Card className="p-3 mb-3">
         <CardTitle tag="h4">Product Detail</CardTitle>
@@ -75,39 +109,37 @@ const AddProduct = () => {
           </Col>
           <Col>
             <FormGroup>
-              <Label htmlFor="minimumPurchase">Minimum Purchase</Label>
-              <Input type="text" id="minimumPurchase" placeholder="Pcs" />
+              <Label htmlFor="discountPrice">Discount Price</Label>
+              <Input
+                type="number"
+                id="discountPrice"
+                placeholder="discount price "
+              />
             </FormGroup>
-            <FormGroup tag="fieldset">
-              <legend>Product Condition</legend>
-              <FormGroup check>
-                <Input name="condition" type="radio" />{" "}
-                <Label id="conditonNew" check>
-                  New
-                </Label>
-              </FormGroup>
-              <FormGroup check>
-                <Input name="condition" type="radio" />{" "}
-                <Label id="conditonSecondhand" check>
-                  Secondhand
-                </Label>
-              </FormGroup>
+            <FormGroup>
+              <Label htmlFor="discountPeriod">Discount Period</Label>
+              <Input
+                type="text"
+                id="discountPeriod"
+                placeholder="discount period "
+              />
             </FormGroup>
-            <FormGroup tag="fieldset">
-              <legend>Imported Item (optional)</legend>
-              <FormGroup check>
-                <Input name="imported" type="radio" />{" "}
-                <Label id="YesImported" check>
-                  Yes
-                </Label>
-              </FormGroup>
-              <FormGroup check>
-                <Input name="imported" type="radio" />{" "}
-                <Label id="noImported" check>
-                  No
-                </Label>
-              </FormGroup>
-            </FormGroup>
+            <Card>
+              <Row>
+                <Col>
+                  <FormGroup>
+                    <Label htmlFor="color">Color</Label>
+                    <Input type="color" id="color" />
+                  </FormGroup>
+                </Col>
+                <Col>
+                  <FormGroup>
+                    <Label htmlFor="productCode">Product Code</Label>
+                    <Input type="text" id="productCode" />
+                  </FormGroup>
+                </Col>
+              </Row>
+            </Card>
           </Col>
         </Row>
       </Card>
@@ -173,38 +205,7 @@ const AddProduct = () => {
                 width: "300px",
                 height: "300px",
               }}
-            >
-              <div
-                className="w-100 h-100 d-flex flex-column justify-content-center align-items-center"
-                style={{ border: "2px dashed black" }}
-              >
-                <img
-                  src={image.profile}
-                  className="variationPrv w-100"
-                  id="variationPrv"
-                  alt=""
-                  style={{ objectFit: "cover", display: "none" }}
-                />
-                <Input
-                  onChange={(e) => uploadImage(e)}
-                  type="file"
-                  id="inputFile"
-                  accept="image/*"
-                  placeholder="variation image"
-                  style={{ display: "none" }}
-                />
-                <label htmlFor="inputFile" className="d-flex flex-column w-75">
-                  <img
-                    src={image.profile}
-                    className="uploadIcon"
-                    id="uploadIcon"
-                    alt=""
-                    style={{ objectFit: "cover" }}
-                  />
-                  Browse Image form drive
-                </label>
-              </div>
-            </Card>
+            ></Card>
           </Col>
         </Row>
       </Card>
@@ -219,12 +220,16 @@ const AddProduct = () => {
             <CardTitle>Good's Grouping</CardTitle>
             <CardBody>
               <FormGroup>
-                <Label htmlFor="etalage">Good’s Etalage</Label>
-                <Input type="text" name="etalnage" id="etalage" />
+                <Label htmlFor="metaTags">Meta Tags</Label>
+                <Input type="text" name="metaTag" id="metaTags" />
               </FormGroup>
               <FormGroup>
-                <Label htmlFor="tags">Tags</Label>
-                <Input type="text" name="tag" id="tag" />
+                <Label htmlFor="metaDescription">Meta Description</Label>
+                <Input
+                  type="textarea"
+                  name="metaDescription"
+                  id="metaDescription"
+                />
               </FormGroup>
               <FormGroup>
                 <Label htmlFor="sku">SKU</Label>

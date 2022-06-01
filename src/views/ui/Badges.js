@@ -1,8 +1,8 @@
 import axios from "axios";
 import CheckboxTree from "react-checkbox-tree";
 import { useEffect, useState } from "react";
-import { Card, makeStyles } from "@material-ui/core";
-import "react-checkbox-tree/src/scss/react-checkbox-tree.scss";
+import { Card } from "@material-ui/core";
+import "react-checkbox-tree/lib/react-checkbox-tree.css";
 import {
   IoIosCheckboxOutline,
   IoIosCheckbox,
@@ -14,14 +14,6 @@ const Badges = () => {
   const [categories, setCategories] = useState([]);
   const [checked, setChecked] = useState([]);
   const [expanded, setExpanded] = useState([]);
-
-  const onCheck = (checked) => {
-    setChecked({ checked });
-  };
-
-  // onExpand = expanded => {
-  //   this.setState({ expanded });
-  // };
 
   useEffect(() => {
     const getCategory = async () => {
@@ -63,11 +55,6 @@ const Badges = () => {
               halfCheck: <IoIosCheckboxOutline />,
               expandClose: <IoIosArrowForward />,
               expandOpen: <IoIosArrowDown />,
-              // expandAll: <span className="rct-icon rct-icon-expand-all" />,
-              // collapseAll: <span className="rct-icon rct-icon-collapse-all" />,
-              // parentClose: <span className="rct-icon rct-icon-parent-close" />,
-              // parentOpen: <span className="rct-icon rct-icon-parent-open" />,
-              // leaf: <span className="rct-icon rct-icon-leaf" />,
             }}
           />
         </Card>
